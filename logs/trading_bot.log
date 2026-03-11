@@ -1,0 +1,212 @@
+2026-03-11 13:07:51.747 | INFO     | __main__:main:46 - Mode: 🧪 TESTNET
+2026-03-11 13:07:51.751 | INFO     | __main__:main:47 - DRY RUN: True
+2026-03-11 13:07:51.751 | INFO     | __main__:main:48 - Symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT']
+2026-03-11 13:07:51.751 | INFO     | __main__:main:49 - Timeframe: 15m
+2026-03-11 13:07:51.752 | INFO     | __main__:main:50 - Max Leverage: 5x
+2026-03-11 13:07:51.752 | INFO     | __main__:main:51 - Risk per trade: 1%
+2026-03-11 13:07:56.164 | INFO     | bot.risk:__init__:87 - RiskManager initialized
+2026-03-11 13:07:57.412 | INFO     | exchange.binance_client:__init__:50 - BinanceClient initialized [🧪 TESTNET | DRY RUN]
+2026-03-11 13:07:57.764 | INFO     | exchange.algo_orders:__init__:38 - AlgoOrderClient ready [DRY_RUN=True]
+2026-03-11 13:07:57.765 | INFO     | bot.engine:__init__:47 - TradingEngine initialized
+2026-03-11 13:07:57.766 | INFO     | __main__:main:66 - Running pre-flight checks...
+2026-03-11 13:07:58.610 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:07:58.611 | SUCCESS  | __main__:main:72 - ✓ Binance connected | Balance: $0.00 USDT
+2026-03-11 13:07:58.611 | SUCCESS  | __main__:main:84 - Pre-flight checks complete ✓
+2026-03-11 13:07:58.611 | INFO     | __main__:main:87 - Starting all services...
+2026-03-11 13:07:58.612 | SUCCESS  | __main__:main:104 - 🚀 All services running!
+   📡 Market Stream: 3 symbols @ 15m
+   🤖 Trading Engine: DRY RUN
+   🌐 API Server: http://0.0.0.0:8000
+   📊 Dashboard: http://localhost:3000
+
+2026-03-11 13:07:58.621 | INFO     | data.market_stream:start:134 - Starting market stream: 3 symbols @ 15m
+2026-03-11 13:07:58.622 | DEBUG    | data.market_stream:start:135 - WS URL: wss://fstream.binance.com/stream?streams=btcusdt@kline_15m/btcusdt@miniTicker/ethusdt@kline_15m/ethusdt@miniTicker/solusdt@kline_15m/solusdt@miniTicker
+2026-03-11 13:07:58.636 | INFO     | bot.engine:start:195 - TradingEngine started 🚀
+2026-03-11 13:07:59.153 | INFO     | api.server:startup:114 - FastAPI server starting up...
+2026-03-11 13:07:59.153 | SUCCESS  | api.server:startup:116 - Background broadcast loop started ✓
+2026-03-11 13:07:59.420 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:07:59.680 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:07:59.812 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:01.717 | INFO     | api.server:connect:56 - WS client connected. Total: 1
+2026-03-11 13:08:04.957 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:05.214 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:05.342 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:10.318 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:10.579 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:10.687 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:13.795 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:14.889 | DEBUG    | data.klines:fetch_klines:86 - Fetched 200 candles: BTCUSDT [15m]
+2026-03-11 13:08:14.895 | INFO     | ai.signal_ai:_compute_signal:201 - Signal [BTCUSDT] → SHORT | Conf: 50% | RSI: 46.6 | MACD: bearish | EMA: downtrend
+2026-03-11 13:08:16.154 | DEBUG    | data.klines:fetch_klines:86 - Fetched 200 candles: ETHUSDT [15m]
+2026-03-11 13:08:16.160 | INFO     | ai.signal_ai:_compute_signal:201 - Signal [ETHUSDT] → SHORT | Conf: 40% | RSI: 47.4 | MACD: bearish | EMA: downtrend
+2026-03-11 13:08:18.265 | DEBUG    | data.klines:fetch_klines:86 - Fetched 200 candles: SOLUSDT [15m]
+2026-03-11 13:08:18.270 | INFO     | ai.signal_ai:_compute_signal:201 - Signal [SOLUSDT] → HOLD | Conf: 50% | RSI: 46.4 | MACD: bullish | EMA: downtrend
+2026-03-11 13:08:18.384 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:19.072 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:19.175 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:19.177 | INFO     | api.server:disconnect:60 - WS client disconnected. Total: 0
+2026-03-11 13:08:19.321 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:21.852 | INFO     | ai.sentiment:fetch_news:158 - Fetched 57 news items
+2026-03-11 13:08:24.282 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:24.381 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:24.498 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:29.747 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:29.848 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:29.984 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:36.451 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:36.548 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:36.706 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:41.645 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:41.924 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:42.072 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:47.036 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:47.141 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:47.295 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:52.620 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:52.730 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:52.906 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:08:58.009 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:58.268 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:08:58.427 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:03.543 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:03.807 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:04.066 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:08.925 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:09.028 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:09.245 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:14.299 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:14.403 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:14.535 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:19.541 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:19.654 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:19.784 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:24.771 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:24.874 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:24.992 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:29.986 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:30.091 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:30.203 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:35.196 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:35.295 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:35.415 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:40.574 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:40.672 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:40.835 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:45.936 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:46.207 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:46.372 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:51.318 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:51.426 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:51.581 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:09:56.532 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:56.643 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:09:56.790 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:01.932 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:02.394 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:02.546 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:07.722 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:07.854 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:08.136 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:13.159 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:13.270 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:13.440 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:18.538 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:18.803 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:18.930 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:24.077 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:24.212 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:24.354 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:29.483 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:29.749 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:29.863 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:35.022 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:35.289 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:35.409 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:40.563 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:40.848 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:40.998 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:46.144 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:46.414 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:46.566 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:51.721 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:51.824 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:51.955 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:10:56.931 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:57.032 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:10:57.177 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:02.304 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:02.407 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:02.533 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:07.513 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:07.637 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:07.836 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:12.918 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:13.018 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:13.148 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:18.141 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:18.245 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:18.359 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:23.510 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:23.775 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:23.954 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:29.055 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:29.161 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:29.351 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:34.274 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:34.543 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:34.681 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:40.042 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:40.299 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:40.449 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:45.409 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:45.506 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:45.666 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:50.595 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:50.699 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:50.861 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:11:55.972 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:56.075 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:11:56.231 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:01.402 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:01.668 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:01.824 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:06.941 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:07.039 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:07.189 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:12.148 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:12.251 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:12.398 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:17.363 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:17.624 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:17.796 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:22.741 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:22.845 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:22.998 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:27.968 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:28.070 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:28.241 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:33.213 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:33.316 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:33.457 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:38.417 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:38.538 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:38.735 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:43.817 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:44.084 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:44.236 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:49.348 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:49.451 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:49.593 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:12:54.727 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:54.989 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:12:55.132 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:13:00.265 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:00.522 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:00.660 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:13:05.642 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:05.739 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:05.886 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:13:11.000 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:11.107 | ERROR    | exchange.binance_client:get_open_positions:103 - Position fetch error: APIError(code=-1109): Invalid account.
+2026-03-11 13:13:11.263 | ERROR    | data.market_stream:start:154 - WS error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'fstream.binance.com'. (_ssl.c:1006). Reconnecting in 5s...
+2026-03-11 13:13:16.217 | ERROR    | exchange.binance_client:get_account_balance:80 - Balance fetch error: APIError(code=-1109): Invalid account.
