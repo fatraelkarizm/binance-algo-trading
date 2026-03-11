@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  # ── Redis ────────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: algo_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Python Bot + FastAPI ─────────────────────────────────────────────────────
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: algo_bot
+    env_file: .env
+    environment:
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    command: python main.py
+
+  # ── Next.js Dashboard ────────────────────────────────────────────────────────
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile.dashboard
+    container_name: algo_dashboard
+    environment:
+      - NEXT_PUBLIC_API_URL=http://bot:8000
+      - NEXT_PUBLIC_WS_URL=ws://bot:8000/ws/live
+    ports:
+      - "3000:3000"
+    depends_on:
+      - bot
+    restart: unless-stopped
+
+volumes:
+  redis_data:
