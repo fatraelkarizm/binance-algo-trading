@@ -1,161 +1,112 @@
-# Binance Algo Trading
+# 🚀 Binance Futures Algo Trading Bot
 
-Python + Next.js trading bot for Binance Futures with market streaming, AI-assisted signals, risk controls, TWAP/VP algo orders, a FastAPI backend, and a realtime dashboard.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python Version" />
+  <img src="https://img.shields.io/badge/FastAPI-0.109-009688.svg" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Next.js-16-000000.svg" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Binance-Futures-F3BA2F.svg" alt="Binance" />
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License" />
+</p>
 
-> Trading crypto futures is risky. Keep `DRY_RUN=true` while testing, use testnet/demo keys first, and never commit API secrets.
+## 📖 Overview
 
-## Features
+The **Binance Futures Algo Trading Bot** is a high-performance, fully automated algorithmic trading system designed for Binance COIN-M Futures. It combines institutional-grade order execution strategies (TWAP, Volume Participation), robust risk management protocols, and AI-driven market analysis to execute trades autonomously 24/7. It also features a sleek, real-time web dashboard built with Next.js to monitor your portfolio, active signals, and risk metrics.
 
-- Binance COIN-M Futures market data stream
-- Strategy engine with technical signals
-- Risk manager for position count, risk per trade, daily loss, stop loss, and take profit
-- TWAP and Volume Participation algo order client
-- AI modules for sentiment, smart money tracking, and signal enrichment
-- FastAPI REST API and WebSocket feed
-- Next.js dashboard for balance, positions, risk, signals, orders, and market data
-- Docker Compose stack with Redis, bot API, and dashboard
+## ⚠️ Problem Statement
 
-## Project Structure
+In the highly volatile cryptocurrency derivatives market, traders face several critical challenges:
+1. **24/7 Market Monitoring:** Humans cannot constantly monitor charts and technical indicators around the clock without fatigue.
+2. **Execution Slippage & Market Impact:** Placing large orders manually often results in high slippage.
+3. **Emotional Trading & Risk Control:** Maintaining strict risk management discipline (e.g., stopping trading after a 5% daily drawdown) is psychologically difficult.
+4. **Information Overload:** Quickly digesting news sentiment and technical confluence across multiple timeframes is overwhelming.
 
-```text
-.
-|-- ai/                 # Sentiment, smart money, and AI signal helpers
-|-- api/                # FastAPI REST and WebSocket server
-|-- bot/                # Trading engine, strategy, and risk manager
-|-- config/             # Environment-driven settings
-|-- dashboard/          # Next.js monitoring dashboard
-|-- data/               # Klines and market stream clients
-|-- exchange/           # Binance REST/algo order clients
-|-- logs/               # Runtime logs
-|-- main.py             # Starts market stream, engine, and API server
-|-- docker-compose.yml  # Redis + bot + dashboard stack
-|-- Dockerfile          # Python bot image
-|-- requirements.txt    # Python dependencies
-`-- SETUP.md            # Longer Binance Algo API notes
-```
+## 💡 Solution
 
-## Requirements
+This project solves these challenges by providing an autonomous, multi-service trading engine:
+- **Algorithmic Execution:** Utilizes Binance's Algo API for TWAP (Time-Weighted Average Price) and VP (Volume Participation) to minimize slippage on large orders (>10,000 USDT).
+- **Ironclad Risk Management:** Hard-coded rules enforce a maximum of 1% balance risk per trade, a strict 5% daily drawdown limit (which automatically halts the bot), a maximum of 3 concurrent positions, and mandatory stop-losses on every trade.
+- **AI-Powered Confluence:** Analyzes RSI, MACD, EMA trends, and Bollinger Bands alongside real-time news sentiment (via CryptoCompare/OpenAI) to generate high-confidence trading signals.
+- **Real-Time Visibility:** A low-latency Next.js dashboard connects via WebSockets to provide a live, unified view of PnL, active signals, algo orders, and overall risk exposure.
 
-- Python 3.11+
-- Node.js 20+ for the dashboard
-- Docker and Docker Compose, optional but recommended
-- Binance API key with Futures permission enabled
-- Redis, if running outside Docker
+## ✨ Key Features
 
-## Configuration
+* **Multi-Mode Support:** Seamlessly switch between LIVE, TESTNET, and DEMO (`demo-fapi.binance.com`) environments.
+* **Concurrent Architecture:** Runs the Market Data WebSocket stream, Trading Engine, and REST/WS API Server simultaneously using Python `asyncio`.
+* **Advanced Indicator Scoring:** Computes signal confidence using multiple technical indicators (`pandas` + `ta`).
+* **News & Sentiment Tracking:** Fetches and analyzes crypto news sentiment to avoid trading against major macroeconomic trends.
+* **Real-time Web Dashboard:** A beautiful, dark-themed UI featuring Recharts for PnL visualization and real-time updates.
 
-Create a local `.env` file in the repository root. Do not commit it.
+## 🛠️ Tech Stack
 
-```env
-# Safety
-DRY_RUN=true
-BINANCE_DEMO=true
-BINANCE_TESTNET=false
+### Backend (Trading Engine & API)
+* **Language:** Python 3
+* **Framework:** FastAPI, Uvicorn (REST & WebSocket Server)
+* **Trading APIs:** `python-binance`, `ccxt`, `httpx`, `websockets`
+* **Data Processing:** `pandas`, `numpy`, `ta` (Technical Analysis)
+* **Scheduling & Logging:** `apscheduler`, `loguru`
 
-# Binance live keys
-BINANCE_API_KEY=
-BINANCE_API_SECRET=
+### Frontend (Dashboard)
+* **Framework:** Next.js 16 (App Router), React 19
+* **Styling:** Tailwind CSS v4
+* **Charting & Icons:** Recharts, Lucide-React
+* **Language:** TypeScript
 
-# Binance demo keys
-BINANCE_DEMO_API_KEY=
-BINANCE_DEMO_API_SECRET=
+## 🚀 Getting Started
 
-# Binance testnet keys
-BINANCE_TESTNET_API_KEY=
-BINANCE_TESTNET_API_SECRET=
+### Prerequisites
+* Python 3.10+
+* Node.js 20+
+* A Binance account with Futures enabled (API Key & Secret)
+* Redis (optional, based on config)
 
-# Trading
-TRADING_SYMBOLS=BTCUSD_PERP,ETHUSD_PERP,SOLUSD_PERP
-DEFAULT_LEVERAGE=5
-SIGNAL_TIMEFRAME=15m
+### 1. Backend Setup
 
-# Risk
-MAX_RISK_PER_TRADE=0.01
-MAX_OPEN_POSITIONS=3
-MAX_DAILY_LOSS=0.05
-DEFAULT_STOP_LOSS_PCT=0.02
-DEFAULT_TAKE_PROFIT_PCT=0.04
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Binance-Algo-Trading.git
+cd Binance-Algo-Trading
 
-# Algo orders
-ALGO_MIN_ORDER_USDT=10000
-TWAP_DEFAULT_DURATION=3600
-VP_DEFAULT_URGENCY=MEDIUM
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Optional AI/news providers
-CRYPTOCOMPARE_API_KEY=
-OPENAI_API_KEY=
-
-# Services
-API_HOST=0.0.0.0
-API_PORT=8000
-REDIS_URL=redis://localhost:6379
-```
-
-Mode priority is `BINANCE_DEMO` first, then `BINANCE_TESTNET`, then live trading.
-
-## Run With Docker
-
-```powershell
-docker compose up --build
-```
-
-Services:
-
-- API: `http://localhost:8000`
-- API docs: `http://localhost:8000/docs`
-- Dashboard: `http://localhost:3000`
-- WebSocket: `ws://localhost:8000/ws/live`
-
-## Run Locally
-
-Install Python dependencies:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+# Install dependencies
 pip install -r requirements.txt
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your Binance API keys and desired trading mode (e.g., BINANCE_DEMO=true)
 ```
 
-Start Redis separately, then run the bot/API:
+### 2. Frontend Setup
 
-```powershell
+```bash
+# Navigate to the dashboard directory
+cd dashboard
+
+# Install dependencies
+npm install
+
+# Configure frontend environment variables
+cp .env.local.example .env.local
+# Ensure NEXT_PUBLIC_API_URL and NEXT_PUBLIC_WS_URL point to your Python backend
+```
+
+### 3. Running the System
+
+Start the Python Trading Engine & API Server:
+```bash
+# From the root directory
 python main.py
 ```
 
-Run the dashboard:
-
-```powershell
-cd dashboard
-npm install
+Start the Next.js Dashboard:
+```bash
+# From the dashboard directory
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Visit `http://localhost:3000` in your browser to view the live dashboard!
 
-## API Endpoints
-
-- `GET /` - health and current mode
-- `GET /api/balance` - account balance and PnL data
-- `GET /api/positions` - open futures positions
-- `GET /api/pnl` - recent realized PnL
-- `GET /api/signals` - latest trading signals
-- `GET /api/sentiment` - news sentiment
-- `GET /api/smart-money` - smart money analysis
-- `GET /api/news` - cached crypto news
-- `GET /api/risk` - current risk metrics
-- `GET /api/orders/algo` - open and recent TWAP/VP orders
-- `DELETE /api/orders/algo/{algo_id}` - cancel an algo order
-- `GET /api/klines/{symbol}` - OHLCV candles
-- `GET /api/trades` - internal trade history
-- `WS /ws/live` - realtime balance, positions, and risk updates
-
-## Development Notes
-
-- Keep `DRY_RUN=true` until exchange connectivity and risk settings are verified.
-- Keep `.env`, logs, cache files, and compiled artifacts out of commits.
-- Review `SETUP.md` for Binance Futures Algo API behavior, TWAP/VP limits, and manual setup notes.
-- Use demo/testnet keys before switching to live mode.
-
-## Disclaimer
-
-This project is for research and automation experiments. It is not financial advice, and it does not guarantee profit or protect against loss.
+---
+*Disclaimer: This software is for educational purposes only. Do not risk money which you are afraid to lose. USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.*
